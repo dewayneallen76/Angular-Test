@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="gemStore" lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<title>Gem Store</title>
+</head>
+  <div class="container">
+  <body ng-controller="StoreController as store">
+    <div class="product row">
+      <h3>
+         {{ store.product.name }}
+        <em class="pull-right">{{ store.product.price }}</em>
+      </h3>
+    </div>
+  </body>
+  </div>
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/gemStore.js"></script>
+</html>
