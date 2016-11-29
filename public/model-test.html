@@ -1,1 +1,33 @@
-model-test.html
+<!DOCTYPE html>
+<html ng-app="modelTest" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Models</title>
+</head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<body>	
+	<div>
+	<form>
+    	<label for="first_name">First Name</label>
+    	<input type="text" id="first_name" ng-model="user.firstName">
+
+    	<label for="last_name">Last Name</label>
+    	<input type="text" id="last_name"  ng-model="user.lastName">
+
+    	<label for="email">eMail</label>
+    	<input type="email" id="email" ng-model="user.email">
+
+    	<label for="password">Password</label>
+    	<input type="password" id="password" ng-model="user.password">
+	</form>
+	</div>
+	<div>
+    Welcome {{ user.firstName }} {{ user.lastName }}<br>
+    We will send a confirmation eMail to {{ user.email }}
+</div>
+</body>
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+    <script type="text/javascript" src="/js/modelTest.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
