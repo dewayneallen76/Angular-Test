@@ -6,7 +6,7 @@
 </head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <body>	
-	<div>
+	<div class="container-fluid">
 	<form novalidate>
     	<label for="first_name">First Name</label>
     	<input type="text" id="first_name" ng-model="user.firstName" maxlength="50" required>
@@ -21,10 +21,11 @@
     	<input type="password" id="password" ng-model="user.password" minlength="6" required>
 	</form>
 	</div>
-	<div>
+	<br>
+	<div class="container-fluid">
     Welcome {{ user.firstName }} {{ user.lastName }}<br>
     We will send a confirmation eMail to {{ user.email }}
-</div>
+	</div>
 </body>
 	<script type="text/javascript" src="/js/angular.min.js"></script>
     <script type="text/javascript" src="/js/modelTest.js"></script>
