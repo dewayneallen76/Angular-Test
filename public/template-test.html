@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html ng-app="moduleName">
+<html ng-app="templateTest">
 <head>
     <meta charset="utf-8">
     <title>Bootstrap an Angular Module</title>
 </head>
+<style>
+	li:first-child {
+     font-style: italic;
+ 	}
+ 	li:last-child {
+     font-weight: bold;
+ 	}
+</style>
 <body>
-	<h1>{{ "Hello, Codeup!" | uppercase }}</h1>
+	<h1>{{ "Angular Exercises" | uppercase }}</h1>
 	<p>{{ (5 * 3 + 7) / 11 }}</p>
 	<p>{{ 123456789.123456|number:3 }}</p>
 	<ul>
@@ -22,6 +30,14 @@
     <li ng-repeat="num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-if="num % 2 == 0">
         {{ num }} is even!
     </li>
+	</ul>
+	<p>Use ng-repeat to output the numbers 0 through 9 in an unordered list.</p>
+	<ul>
+		<li ng-repeat="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]">{{ num }}</li>
+	</ul>
+	<p>Hide or remove the numbers that are divisible by three. You should only have 6 numbers in your list.</p>
+	<ul>
+		<li ng-repeat="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" ng-hide="num % 3 == 0">{{ num }}</li>
 	</ul>
     <script type="text/javascript" src="/js/angular.min.js"></script>
     <script type="text/javascript" src="/js/templateTest.js"></script>

@@ -1,5 +1,5 @@
 "use strict";
 
 (function() {
-    var app = angular.module("moduleName", []);
+    var app = angular.module("templateTest", []);
 })();
