@@ -7,18 +7,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <body>	
 	<div>
-	<form>
+	<form novalidate>
     	<label for="first_name">First Name</label>
-    	<input type="text" id="first_name" ng-model="user.firstName">
+    	<input type="text" id="first_name" ng-model="user.firstName" maxlength="50" required>
 
     	<label for="last_name">Last Name</label>
-    	<input type="text" id="last_name"  ng-model="user.lastName">
+    	<input type="text" id="last_name"  ng-model="user.lastName" maxlength="50" required>
 
     	<label for="email">eMail</label>
-    	<input type="email" id="email" ng-model="user.email">
+    	<input type="email" id="email" ng-model="user.email" required>
 
     	<label for="password">Password</label>
-    	<input type="password" id="password" ng-model="user.password">
+    	<input type="password" id="password" ng-model="user.password" minlength="6" required>
 	</form>
 	</div>
 	<div>
