@@ -30,11 +30,18 @@
 		this.review = {};
 
 		this.addReiew = function(product){
+			this.review.createdOn = Date.now();
 			product.reviews.push(this.review);
 			this.review = {};
 		};
 	});
 
+	app.directive('productDescription', function(){
+		return {
+			restrict: 'E',
+			templateUrl: 'product-description.html'
+		};
+	});
 	var gems = [
 		{ 
 			name: 'Azurite',

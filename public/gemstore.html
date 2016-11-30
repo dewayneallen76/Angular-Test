@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="gemStore" lang="en">
 <head>
+	<link rel="stylesheet" href="/css/gemstore.css	">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<meta charset="UTF-8">
 	<title>Gem Store</title>
@@ -32,13 +33,23 @@
           <li ng-class="{ active:tab.isSet(3) }">
             <a href ng-click="tab.setTab(3)">Reviews</a></li>
         </ul>
-        <div ng-show="tab.isSet(1)">
-          <h4>Description</h4>
-          <blockquote>{{ product.description }}</blockquote>
-        </div>
+        <product-description ng-show="tab.isSet(1)"></product-description>
         <div ng-show="tab.isSet(2)">
-          <h4>Specs</h4>
-          <blockquote>Shine: {{ product.shine }} </blockquote>
+           <h4>Specs</h4>
+            <ul class="list-unstyled">
+              <li>
+                <strong>Shine</strong>
+                : {{product.shine}}</li>
+              <li>
+                <strong>Faces</strong>
+                : {{product.faces}}</li>
+              <li>
+                <strong>Rarity</strong>
+                : {{product.rarity}}</li>
+              <li>
+                <strong>Color</strong>
+                : {{product.color}}</li>
+            </ul>
         </div>
         <div ng-show="tab.isSet(3)">
           <ul>
@@ -47,12 +58,12 @@
                 <blockquote>
                   <strong>{{ review.stars }} Stars</strong>
                   {{ review.body }}
-                  <cite class="clearfix">—{{ review.author }}</cite>
+                  <cite class="clearfix">—{{ review.author }} on {{ review.createdOn | date }}</cite>
                 </blockquote>
               </li>
             </ul>
             <!--  Review Form -->
-            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
               <!--  Live Preview -->
               <blockquote>
                 <strong>{{ reviewCtrl.review.stars }} Stars</strong>
@@ -63,15 +74,15 @@
               <!--  Review Form -->
               <h4>Submit a Review</h4>
               <fieldset class="form-group">
-                <select class="form-control" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
+                <select class="form-control" ng-model="reviewCtrl.review.stars" required ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
                   <option value="">Rate the Product</option>
                 </select>
               </fieldset>
               <fieldset class="form-group">
-                <textarea class="form-control" ng-model="reviewCtrl.review.body" placeholder="Write a short review of the product..." title="Review"></textarea>
+                <textarea class="form-control" ng-model="reviewCtrl.review.body" required placeholder="Write a short review of the product..." title="Review"></textarea>
               </fieldset>
               <fieldset class="form-group">
-                <input type="email" class="form-control" ng-model="reviewCtrl.review.author" placeholder="jimmyDean@example.org" title="Email" />
+                <input type="email" class="form-control ng-dirty ng-valid" ng-model="reviewCtrl.review.author" required placeholder="jimmyDean@example.org" title="Email" />
               </fieldset>
               <fieldset class="form-group">
                 <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
