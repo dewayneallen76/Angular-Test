@@ -6,6 +6,14 @@
 		this.products = gems;
 	});
 
+	app.controller('GalleryController', function(){
+    	this.current = 0;
+    
+    	this.setCurrent = function(newValue){
+      	this.current = newValue || 0;
+    	};
+  	});
+
 	app.controller('TabController', function(){
 		this.tab = 1;
 
@@ -18,6 +26,15 @@
 		};
 	});
 
+	app.controller('ReviewController', function(){
+		this.review = {};
+
+		this.addReiew = function(product){
+			product.reviews.push(this.review);
+			this.review = {};
+		};
+	});
+
 	var gems = [
 		{ 
 			name: 'Azurite',
@@ -26,6 +43,20 @@
 			price: 110.50,
 			images: [
 				"img/gem.jpg"
+			],
+			reviews: [
+				{
+					stars: 5,
+					body: "I love this gem!",
+					author: "joe@example.com",
+					createdOn: 1397490980837
+				},
+				{
+					stars: 1, 
+					body: "This gem sucks.",
+					author: "tim@example.com",
+					createdOn: 1397490980837
+				}
 			]
 		},
 		{ 	name: 'Bloodstone', 
@@ -34,6 +65,20 @@
 			price: 22.90,
 			images: [
 				"img/gem.jpg"
+			],
+			reviews: [
+				{
+					stars: 3,
+	        		body: "I think this gem was just OK, could honestly use more shine, IMO.",
+	        		author: "JimmyDean@example.org",
+	        		createdOn: 1397490980837
+	      		}, 
+	  			{
+	  				stars: 4,
+	        		body: "Any gem with 12 faces is for me!",
+	        		author: "gemsRock@example.org",
+	        		createdOn: 1397490980837
+	  			}
 			]
 		},
 		{
@@ -43,6 +88,26 @@
 			price: 1100, 
 			images: [
 				"img/gem.jpg"
+			],
+			reviews: [
+				{
+					stars: 1,
+		        	body: "This gem is WAY too expensive for its rarity value.",
+		        	author: "turtleguyy@example.org",
+		        	createdOn: 1397490980837
+		    	},
+	    		{
+	    			stars: 1,
+        			body: "BBW: High Shine != High Quality.",
+        			author: "LouisW407@example.org",
+        			createdOn: 1397490980837
+	    		},
+	    		{
+	    			stars: 1,
+        			body: "Don't waste your rubles!",
+        			author: "nat@example.org",
+        			createdOn: 1397490980837
+	    		}
 			]
 		}
 	];
