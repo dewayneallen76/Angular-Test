@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="gemStore" lang="en">
 <head>
-	<link rel="stylesheet" href="/css/gemstore.css	">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link rel="stylesheet" href="/css/gemstore.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<meta charset="UTF-8">
 	<title>Gem Store</title>
@@ -21,6 +22,7 @@
       		<section ng-show="product.images.length" ng-controller="GalleryController as gallery">
         	<img ng-src="{{product.images[gallery.current]}}" />
         		<ul class="list-inline thumbs">
+        		<br>
           			<li class="thumbnail" ng-repeat="image in product.images">
             			<img ng-src="{{image}}" />
           			</li>
