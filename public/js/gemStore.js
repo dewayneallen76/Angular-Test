@@ -1,6 +1,6 @@
 "use strict";
 (function () {
-	var app = angular.module('gemStore', []);
+	var app = angular.module('gemStore', ['storeDirectives']);
 
 	app.controller('StoreController', function(){
 		this.products = gems;
@@ -14,18 +14,6 @@
     	};
   	});
 
-	app.controller('TabController', function(){
-		this.tab = 1;
-
-		this.setTab = function(newValue) {
-			this.tab = newValue;
-		};
-
-		this.isSet = function(tabName) {
-			return this.tab === tabName;
-		};
-	});
-
 	app.controller('ReviewController', function(){
 		this.review = {};
 
@@ -33,46 +21,6 @@
 			this.review.createdOn = Date.now();
 			product.reviews.push(this.review);
 			this.review = {};
-		};
-	});
-
-	app.directive('productDescription', function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'product-description.html'
-		};
-	});
-
-	app.directive('productSpecs', function(){
-		return {
-			restrict: 'A',
-			templateUrl: 'product-specs.html'
-		};
-	});
-
-	app.directive('productTabs', function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'product-tabs.html',
-			controller: function() {
-				this.tab = 1;
-
-		   		this.setTab = function(setTab) {
-					this.tab = setTab;
-				};
-
-				this.isSet = function(checkTab) {
-					return this.tab === checkTab;
-				};
-			},
-			controllerAs: 'tab'
-		};
-	});
-
-	app.directive('productReviews', function() {
-		return {
-			restrict: 'E',
-			templateUrl: 'product-reviews.html',
 		};
 	});
 

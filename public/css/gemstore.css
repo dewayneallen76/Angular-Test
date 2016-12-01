@@ -5,3 +5,8 @@
 .ng-dirty.ng-valid {
 	border-color: green;
 }
+
+.thumbnail {
+	height: 50px;
+	width: 50px;
+}
