@@ -6,9 +6,7 @@ console.log("js connected");
 
       var todoList = this;
 
-      todoList.todos = [
-        {text:'learn AngularJS', done:true}
-      ];
+      todoList.todos = [];
 
       todoList.addTodo = function() {
         todoList.todos.push({text:todoList.todoText, done:false});
